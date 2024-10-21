@@ -29,10 +29,10 @@ class MQTTClient:
         self.should_exit = False
         self.logger = logger
         self.client = mqtt.Client(str(uuid.uuid1()), reconnect_on_failure=True)
-        self.broker_address = "b-fba2aea8-4d42-46f9-95bf-9cf5629a8898-1.mq.eu-west-1.amazonaws.com"
+        self.broker_address = "b-15ffdacd-b374-45c6-9b9a-58df1421acde-1.mq.eu-west-1.amazonaws.com"
         self.port = 8883
-        self.user = "consoleuser"
-        self.password = "ioTHw@CA2024"
+        self.user = "HMQTTAdmin"
+        self.password = "Harpelectrical@957"
 
         self.client.on_connect = self.on_connect
         self.client.on_message = self.on_message
@@ -470,7 +470,7 @@ class MQTTClient:
         client.subscribe('network')
         client.subscribe('web-Alarms')
         client.subscribe('web-hardwarestatus')
-        client.subscribe('ops')
+        client.subscribe('operation')
 
     def on_message(self, client, userdata, msg):
         topic = msg.topic
@@ -484,7 +484,7 @@ class MQTTClient:
         elif topic == "web-hardwarestatus":
             # process_web_hw_status(msg, self.c, self.logger)
             pass
-        elif topic == "ops":
+        elif topic == "operation":
             self.process_operation(msg)
 
     def on_publish(self, client, userdata, mid):
