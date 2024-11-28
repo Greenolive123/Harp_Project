@@ -73,22 +73,22 @@ class MQTTClient:
                 eth0_interface = ipr.interfaces.get('eth0', None)
                 eth1_interface = ipr.interfaces.get('eth1', None)
 
-                self.logger.debug(f"eth0_interface: {eth0_interface}")
-                self.logger.debug(f"eth1_interface: {eth1_interface}")
+                #self.logger.debug(f"eth0_interface: {eth0_interface}")
+                #self.logger.debug(f"eth1_interface: {eth1_interface}")
 
                 # Check if interfaces are up
                 eth0_ip = self.get_interface_ip('eth0') if eth0_interface and eth0_interface.operstate == 'UP' else None
                 eth1_ip = self.get_interface_ip('eth1') if eth1_interface and eth1_interface.operstate == 'UP' else None
 
-                self.logger.debug(f"eth0 IP: {eth0_ip}")
-                self.logger.debug(f"eth1 IP: {eth1_ip}")
+                #self.logger.debug(f"eth0 IP: {eth0_ip}")
+                #self.logger.debug(f"eth1 IP: {eth1_ip}")
 
                 # Check if the IP is present on any interface
                 eth0_ip_present = eth0_ip == '192.168.3.11'
                 eth1_ip_present = eth1_ip == '192.168.3.11'
 
                 if eth0_ip_present or eth1_ip_present:
-                    self.logger.info(f"{'eth0' if eth0_ip_present else 'eth1'} IP is '192.168.3.11'.")
+                    #self.logger.info(f"{'eth0' if eth0_ip_present else 'eth1'} IP is '192.168.3.11'.")
                     return True
                 else:
                     self.logger.error("Neither eth0 nor eth1 interface found with IP '192.168.3.11'.")
@@ -105,7 +105,7 @@ class MQTTClient:
         try:
             with IPDB() as ipr:
                 iface = ipr.interfaces[interface_name]
-                self.logger.debug(f"Interface {interface_name} details: {iface}")
+                #self.logger.debug(f"Interface {interface_name} details: {iface}")
                 if iface:
                     # Getting the first IPv4 address
                     for ip_info in iface.ipaddr:
