@@ -29,7 +29,7 @@ class MQTTClient:
         self.should_exit = False
         self.logger = logger
         self.client = mqtt.Client(str(uuid.uuid1()), reconnect_on_failure=True)
-        self.broker_address = "b-15ffdacd-b374-45c6-9b9a-58df1421acde-1.mq.eu-west-1.amazonaws.com"
+        self.broker_address = "b-fb8215fb-aada-412d-b306-c169e43b9cbb-1.mq.eu-west-1.amazonaws.com"
         self.port = 8883
         self.user = "HMQTTAdmin"
         self.password = "Harpelectrical@957"
